@@ -1,0 +1,14 @@
+.listOfNotesBlock {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 2 * 62px - 16px - 28px - 40px - 66px);
+    margin: 0 12px;
+    flex-grow: 1;
+    overflow-y: scroll;
+    background-color: blanchedalmond;
+}
+
+
+.listOfNotesBlock::-webkit-scrollbar {
+    width: 0;
+}

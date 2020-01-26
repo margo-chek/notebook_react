@@ -1,0 +1,46 @@
+.noteItemBlock {
+    display: none;
+    flex-direction: row;
+    max-height: 32px;
+    max-width: 100%;
+}
+
+.noteItemName {
+    flex-grow: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: start;
+    overflow: hidden;
+}
+
+.noteItemDate {
+    display: flex;
+}
+
+.noteItemActions {
+    display: flex;
+    flex-direction: row;
+    padding: 6px 0 0 6px;
+}
+
+.editIcon,
+.deleteIcon {
+    display: flex;
+    height: 18px;
+    width: 18px;
+    margin: 2px 0 0 2px;
+}
+
+.editIcon {
+    background: url("../../../image/icons8_edit_32.png") no-repeat;
+    background-size: 80% auto;
+}
+
+.deleteIcon {
+    background: url("../../../image/icons8_delete_32.png") no-repeat;
+    background-size: 80% auto;
+}
+
+.visible {
+    display: flex;
+}

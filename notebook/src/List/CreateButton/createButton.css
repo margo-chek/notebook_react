@@ -1,0 +1,24 @@
+.buttonBlock {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonAddNote {
+    display: block;
+    text-align: center;
+    margin: 12px;
+    min-height: 30px;
+    width: 100%;
+    padding: 8px;
+    color: #fff;
+    background-color: #008cff;
+    font-size: 19px;
+    line-height: 24px;
+    border: 1px solid #666;
+    border-radius: 19px;
+}
+
+.buttonAddNote:hover {
+    cursor: pointer;
+    background-color: #0055ff;
+}

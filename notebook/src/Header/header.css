@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0 0 auto;
+    color:#000;
+    background-color: #e6e6e6;
+    height: 62px;
+    line-height: 24px;
+    padding-top: 16px;
+}
+
+.link {
+    font: 16px/20px "Georgia", serif;
+    text-decoration: none;
+    color: inherit;
+}
+
+.linkName {
+    color: blue;
+    text-decoration: underline;
+}
+
+.linkName:hover {
+    color: #0055ff;
+    cursor: pointer;
+}
