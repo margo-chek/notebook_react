@@ -2,10 +2,17 @@ import React from 'react';
 import './createButton.css';
 
 export default class CreateButton extends React.Component {
+
+addNewNote = () => {
+  console.warn("addNewNote");
+  // let create = document.querySelector(".rightContainerCreate");
+  // create.classList.add("visible");
+}
+
   render () {
     return (
-      <div class="buttonBlock">
-        <button type="button" class="buttonAddNote" name="buttonAddNote" onclick="addNewNote()">
+      <div className="buttonBlock">
+        <button type="button" className="buttonAddNote" name="buttonAddNote" onClick={this.addNewNote}>
             Add new note
         </button>
       </div>

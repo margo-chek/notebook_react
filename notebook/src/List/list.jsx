@@ -7,7 +7,7 @@ import './list.css';
 export default class List extends React.Component {
   render () {
     return (
-      <div class="leftContainer">
+      <div className="leftContainer">
         <Search />
         <ListOfNote />
         <CreateButton />

@@ -8,11 +8,11 @@ import './App.css';
 export default class App extends React.Component {
   render () {
     return (
-        <div class="mainContainer">
+        <div className="mainContainer">
           <Header />
-          <div class="content">
+          <div className="content">
             <List />
-            <div class="betweenContainer"></div>
+            <div className="betweenContainer"></div>
             <Info />
           </div>
           <Footer />
