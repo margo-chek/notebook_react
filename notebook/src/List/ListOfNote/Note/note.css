@@ -44,3 +44,11 @@
 .visible {
     display: flex;
 }
+
+.noteItemBlockInfo{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    max-height: 32px;
+    max-width: 80%;
+}

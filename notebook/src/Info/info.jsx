@@ -10,7 +10,7 @@ export default class Info extends React.Component {
     fetch("insertNoteData.php", {method: "POST", body: new FormData(document.forms[0])})
         .then(response => response.text())
         .then(errorResult => {document.querySelector(".output").innerHTML = errorResult;})
-        //.then(location.reload(true))
+        .then(window.location.reload(true))
   }
 
   sendChanges = (event) => {
@@ -20,7 +20,7 @@ export default class Info extends React.Component {
     fetch("updateNoteData.php", {method: "POST", body: data})
         .then(response => response.text())
         .then(errorResult => {document.querySelector(".output").innerHTML = errorResult;})
-        //.then(location.reload(true))
+        .then(window.location.reload(true))
   }
 
   onClose = () => {
