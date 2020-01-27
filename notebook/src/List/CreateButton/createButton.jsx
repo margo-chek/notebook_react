@@ -5,8 +5,8 @@ export default class CreateButton extends React.Component {
 
 addNewNote = () => {
   console.warn("addNewNote");
-  // let create = document.querySelector(".rightContainerCreate");
-  // create.classList.add("visible");
+  let create = document.querySelector(".rightContainerCreate");
+  create.classList.add("visible");
 }
 
   render () {

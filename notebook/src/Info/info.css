@@ -35,3 +35,132 @@
     margin: 12px;
     padding: 8px;
 }
+
+.rightContainerInfo,
+.rightContainerCreate,
+.rightContainerEdit,
+.rightContainer {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: antiquewhite;
+}
+
+.rightContainer {
+    display: flex;
+}
+
+
+.noteHeaderBlockInfo {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #666;
+    margin: 12px;
+    min-height: 30px;
+}
+
+.noteNameBlockInfo {
+    display: flex;
+    width: 100%;
+    flex-grow: 1;
+    padding: 8px;
+}
+
+.noteDateBlockInfo {
+    display: flex;
+    width: 180px;
+    padding: 8px;
+}
+
+.infoBlockInfo {
+    display: flex;
+    margin: 12px;
+    padding: 8px;
+}
+
+.noteHeaderBlockCreate {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #666;
+    margin: 12px;
+    min-height: 30px;
+}
+
+.noteHeaderBlockEdit {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #666;
+    margin: 12px;
+    min-height: 30px;
+}
+
+.noteEditBlock {
+    display: flex;
+    color: #000;
+    font: 16px/20px "Georgia", serif;
+}
+
+.formBlock {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    font-size: 19px;
+    margin: 12px;
+}
+
+.inputForm {
+    display: flex;
+    flex-grow: 1;
+    margin: 12px 0;
+    padding: 8px;
+    font-size: 19px;
+    line-height: 32px;
+    border: 1px solid #666;
+}
+
+.inputForm:first-child {
+    margin-top: -12px;
+}
+
+.noteNameBlockEdit {
+    display: flex;
+    max-height: 30px;
+    padding: 8px;
+}
+
+.noteDateBlockEdit {
+    display: flex;
+    max-height: 30px;
+    padding: 8px;
+}
+
+.infoBlockEdit {
+    display: flex;
+    flex-grow: 1;
+    padding: 8px;
+}
+
+.buttonSave,
+.buttonCancel {
+    display: block;
+    text-align: center;
+    margin: 20px;
+    min-height: 30px;
+    min-width: 180px;
+    padding: 8px;
+    color: #fff;
+    background-color: #008cff;
+    font-size: 19px;
+    line-height: 32px;
+    border: 1px solid #666;
+    border-radius: 19px;
+}
+
+.buttonSave:hover {
+    cursor: pointer;
+    background-color: #0055ff;
+}
+
+.buttonCancel {
+    background-color: #ff7640;
+}
