@@ -12,7 +12,7 @@ async componentDidMount() {
   // let response = await fetch("http://localhost/wdb-course-3/software/notebook/loadNotes.php", {credentials: "include"});
   let response = await fetch("http://localhost/wdb-course-3/software/notebook/loadNotes.php");
   let responseData= await response.json();
-  console.dir(responseData);
+  console.dir(responseData); // не забыть удалить потом!!!
   // http://127.0.0.1:8000/notes // for laragon
   this.setState({
     notes: responseData
@@ -33,13 +33,14 @@ updateNote(event) {
 }
 
   render () {
+    const stateNotes = this.state && this.state.notes;
     return (
       <div className="mainContainer">
         <Header />
         <div className="content">
-          <List notes={this.state && this.state.notes} />
-          <div className="betweenContainer"></div>
-          <Info updateNote={this.updateNote.bind(this)}/>
+          <List notes={stateNotes} />
+          <div className="betweenContainer" />
+          <Info updateNote={this.updateNote.bind(this)} notes={stateNotes} />
         </div>
         <Footer />
       </div>

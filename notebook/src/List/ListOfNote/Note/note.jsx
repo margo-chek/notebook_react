@@ -44,11 +44,15 @@ export default class Note extends React.Component {
     }
   }
 
+//   Date.prototype.format = function (mask, utc) {
+//     return dateFormat(this, mask, utc);
+// };
+
   render () {
     // onClick={this.showNote.bind(this, this.props.noteData.id_note)}
     return (
       <div className="noteItemBlock visible">
-        <button className="noteItemBlockInfo" >  {/* нужен id */}
+        <button className="noteItemBlockInfo">  {/* нужен id */}
           <div className="noteItemName searchName">{this.props.noteData.note_name}</div>
           <div className="noteItemDate">{this.props.noteData.use_date}</div>
         </button>
