@@ -16,7 +16,7 @@ export default class Info extends React.Component {
   sendChanges = (event) => {
     event.preventDefault();
     let data = new FormData(document.forms[1]);
-    data.append("note_id", idUpdate);
+    data.append("id_note", idUpdate);
     fetch("updateNoteData.php", {method: "POST", body: data})
         .then(response => response.text())
         .then(errorResult => {document.querySelector(".output").innerHTML = errorResult;})
@@ -47,7 +47,7 @@ export default class Info extends React.Component {
             <input placeholder="02.10.2019" className="noteDateBlockEdit inputForm" name="inputNoteDate" type="date" required />
             <textarea placeholder="Line 1" className="infoBlockEdit inputForm" name="inputNoteContent" required></textarea>
             <div className="buttonBlock">
-              <input className="buttonSave" type="submit" name="buttonSave" onClick={this.props.update_note} value="Save"/>
+              <input className="buttonSave" type="submit" name="buttonSave" onClick={this.props.updateNote} value="Save"/>
             </div>
           </form>
         </div>

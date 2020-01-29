@@ -9,7 +9,7 @@ export default class List extends React.Component {
     return (
       <div className="leftContainer">
         <Search />
-        <ListOfNote />
+        <ListOfNote notes={this.props.notes}/>
         <CreateButton />
       </div>
     );

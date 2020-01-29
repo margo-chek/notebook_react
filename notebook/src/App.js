@@ -9,13 +9,27 @@ export default class App extends React.Component {
 
 async componentDidMount() {
   // let response = await fetch("http://localhost/wdb-course-3/software/notebook/load_notes.php", {method: "POST", body: data});
+  // let response = await fetch("http://localhost/wdb-course-3/software/notebook/loadNotes.php", {credentials: "include"});
   let response = await fetch("http://localhost/wdb-course-3/software/notebook/loadNotes.php");
-  let response_data= await response.json();
-  console.dir(response_data);
+  let responseData= await response.json();
+  console.dir(responseData);
   // http://127.0.0.1:8000/notes // for laragon
   this.setState({
-    notes: response
+    notes: responseData
   })
+}
+
+updateNote(event) {
+  event.preventDefault();
+  fetch("insertNoteData.php", {method: "POST", body: new FormData(document.forms[0])})
+      .then(response => response.json())
+      .then(errorResult => {
+        // document.querySelector(".output").innerHTML = errorResult;
+        this.setState({
+          notes: errorResult
+        })
+      })
+      // .then(window.location.reload(true))
 }
 
   render () {
@@ -23,26 +37,12 @@ async componentDidMount() {
       <div className="mainContainer">
         <Header />
         <div className="content">
-          <List />
+          <List notes={this.state && this.state.notes} />
           <div className="betweenContainer"></div>
           <Info updateNote={this.updateNote.bind(this)}/>
         </div>
         <Footer />
       </div>
     );
-  }
-
-  updateNote(event) {
-    event.preventDefault();
-    fetch("insertNoteData.php", {method: "POST", body: new FormData(document.forms[0])})
-        .then(response => response.json())
-        .then(errorResult => {
-          // document.querySelector(".output").innerHTML = errorResult;
-          this.setState({
-            notes: errorResult
-          })
-        })
-        // .then(window.location.reload(true))
-
   }
 }
