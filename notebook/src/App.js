@@ -6,33 +6,43 @@ import List from './List/list.jsx';
 import './App.css';
 
 export default class App extends React.Component {
+
+async componentDidMount() {
+  // let response = await fetch("http://localhost/wdb-course-3/software/notebook/load_notes.php", {method: "POST", body: data});
+  let response = await fetch("http://localhost/wdb-course-3/software/notebook/loadNotes.php");
+  let response_data= await response.json();
+  console.dir(response_data);
+  // http://127.0.0.1:8000/notes // for laragon
+  this.setState({
+    notes: response
+  })
+}
+
   render () {
     return (
-        <div className="mainContainer">
-          <Header />
-          <div className="content">
-            <List />
-            <div className="betweenContainer"></div>
-            <Info />
-          </div>
-          <Footer />
+      <div className="mainContainer">
+        <Header />
+        <div className="content">
+          <List />
+          <div className="betweenContainer"></div>
+          <Info updateNote={this.updateNote.bind(this)}/>
         </div>
-      /* <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div> */
+        <Footer />
+      </div>
     );
+  }
+
+  updateNote(event) {
+    event.preventDefault();
+    fetch("insertNoteData.php", {method: "POST", body: new FormData(document.forms[0])})
+        .then(response => response.json())
+        .then(errorResult => {
+          // document.querySelector(".output").innerHTML = errorResult;
+          this.setState({
+            notes: errorResult
+          })
+        })
+        // .then(window.location.reload(true))
+
   }
 }

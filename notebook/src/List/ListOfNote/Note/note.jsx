@@ -9,7 +9,7 @@ export default class Note extends React.Component {
     event.preventDefault();
     let data = new FormData();
     data.append("note_id", id);
-    fetch("getNoteData.php", {method: "POST", body: data})
+    fetch("/reactNotebook/getNoteData.php", {method: "POST", body: data})
         .then(response => response.json())
         .then(noteInfo  => {
             JSON.parse(JSON.stringify(noteInfo));
@@ -28,6 +28,7 @@ export default class Note extends React.Component {
 
   editNote = (event, id) => {
     let edit = document.querySelector(".rightContainerEdit");
+    id = 2;
     this.getNoteInfo(event, id);
     edit.classList.add("visible");
   }
@@ -38,8 +39,8 @@ export default class Note extends React.Component {
     if(confirmationOfDeletion) {
         let data = new FormData();
         data.append("note_id", id);
-        fetch("deleteNoteData.php", {method: "POST", body: data})
-            //.then(location.reload(true))
+        fetch("/reactNotebook/deleteNoteData.php", {method: "POST", body: data})
+          .then(window.location.reload(true))
     }
   }
 

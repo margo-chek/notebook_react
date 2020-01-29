@@ -5,13 +5,13 @@ let idUpdate;
 
 export default class Info extends React.Component {
 
-  send = (event) => { // event: React.KeyboardEvent<HTMLInputElement>
-    event.preventDefault();
-    fetch("insertNoteData.php", {method: "POST", body: new FormData(document.forms[0])})
-        .then(response => response.text())
-        .then(errorResult => {document.querySelector(".output").innerHTML = errorResult;})
-        .then(window.location.reload(true))
-  }
+  // send = (event) => { // event: React.KeyboardEvent<HTMLInputElement>
+    // event.preventDefault();
+    // fetch("insertNoteData.php", {method: "POST", body: new FormData(document.forms[0])})
+    //     .then(response => response.text())
+    //     .then(errorResult => {document.querySelector(".output").innerHTML = errorResult;})
+    //     .then(window.location.reload(true))
+  // }
 
   sendChanges = (event) => {
     event.preventDefault();
@@ -47,7 +47,7 @@ export default class Info extends React.Component {
             <input placeholder="02.10.2019" className="noteDateBlockEdit inputForm" name="inputNoteDate" type="date" required />
             <textarea placeholder="Line 1" className="infoBlockEdit inputForm" name="inputNoteContent" required></textarea>
             <div className="buttonBlock">
-              <input className="buttonSave" type="submit" name="buttonSave" onClick={this.send} value="Save"/>
+              <input className="buttonSave" type="submit" name="buttonSave" onClick={this.props.update_note} value="Save"/>
             </div>
           </form>
         </div>
