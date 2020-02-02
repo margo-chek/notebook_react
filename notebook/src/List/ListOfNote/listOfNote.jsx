@@ -8,7 +8,7 @@ export default class ListOfNote extends React.Component {
     return (
       <div className="listOfNotesBlock">
         {this.props.notes && this.props.notes.map(itemNote => (
-          <Note noteData={itemNote} />
+          <Note noteData={itemNote} notes={this.props.notes} />
         ))}
       </div>
     );

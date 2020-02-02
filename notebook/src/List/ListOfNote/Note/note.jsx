@@ -1,34 +1,52 @@
 import React from 'react';
 import './note.css';
 
-let idUpdate;
-
 export default class Note extends React.Component {
 
   getNoteInfo = (id, event) => {
-    event.preventDefault();
-    let data = new FormData();
-    data.append("id_note", id);
-    fetch("/reactNotebook/getNoteData.php", {method: "POST", body: data})
-        .then(response => response.json())
-        .then(noteInfo  => {
-            JSON.parse(JSON.stringify(noteInfo));
-            this.splitNote(noteInfo)})
+    this.props.notes.forEach(item => {
+      if (id == item.id_note) {
+        this.splitNote(item)
+      }
+    });
   }
 
   splitNote = (arr) => {
-    idUpdate = arr["id_note"];
+    const idUpdate = arr["id_note"];
     const name = arr["note_name"]; // или так arr.note_name;
     const date = arr["use_date"]; // или так arr.use_date;
     const content = arr["content"]; // или так arr.content;
     document.querySelector(".editName").value = name;
     document.querySelector(".editDate").value = date;
     document.querySelector(".editContent").innerHTML = content;
-}
+    document.querySelector(".id").value = idUpdate;
+  }
+
+  splitNoteShow = (arr) => {
+    const name = arr["note_name"]; // или так arr.note_name;
+    const date = arr["use_date"]; // или так arr.use_date;
+    const content = arr["content"]; // или так arr.content;
+    document.querySelector(".noteNameBlockInfo").innerHTML = name;
+    document.querySelector(".noteDateBlockInfo").innerHTML = date;
+    document.querySelector(".infoBlockInfo").innerHTML = content;
+  }
+
+  getNoteInfoShow = (id, event) => {
+    this.props.notes.forEach(item => {
+      if (id == item.id_note) {
+        this.splitNoteShow(item)
+      }
+    });
+  }
+
+  showNote = (id, event) => {
+    let edit = document.querySelector(".rightContainerInfo");
+    this.getNoteInfoShow(id, event);
+    edit.classList.add("visible");
+  }
 
   editNote = (id, event) => {
     let edit = document.querySelector(".rightContainerEdit");
-    id = 2;
     this.getNoteInfo(id, event);
     edit.classList.add("visible");
   }
@@ -39,7 +57,7 @@ export default class Note extends React.Component {
     if(confirmationOfDeletion) {
         let data = new FormData();
         data.append("id_note", id);
-        fetch("/reactNotebook/deleteNoteData.php", {method: "POST", body: data})
+        fetch("http://localhost/wdb-course-3/software/notebook/deleteNoteData.php", {method: "POST", body: data})
           .then(window.location.reload(true))
     }
   }
@@ -49,16 +67,15 @@ export default class Note extends React.Component {
 // };
 
   render () {
-    // onClick={this.showNote.bind(this, this.props.noteData.id_note)}
     return (
       <div className="noteItemBlock visible">
-        <button className="noteItemBlockInfo">  {/* нужен id */}
+        <button className="noteItemBlockInfo" onClick={this.showNote.bind(this, this.props.noteData.id_note)}> 
           <div className="noteItemName searchName">{this.props.noteData.note_name}</div>
           <div className="noteItemDate">{this.props.noteData.use_date}</div>
         </button>
         <div className="noteItemActions">
-          <button className="editIcon" onClick={this.editNote.bind(this, this.props.noteData.id_note)}></button> {/* нужен id */}
-          <button className="deleteIcon" onClick={this.deleteNote.bind(this, this.props.noteData.id_note)}></button> {/* нужен id */}
+          <button className="editIcon" onClick={this.editNote.bind(this, this.props.noteData.id_note)}></button>
+          <button className="deleteIcon" onClick={this.deleteNote.bind(this, this.props.noteData.id_note)}></button>
         </div>
       </div>
     );
