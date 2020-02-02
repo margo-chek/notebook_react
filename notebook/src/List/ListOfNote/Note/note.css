@@ -15,6 +15,7 @@
 
 .noteItemDate {
     display: flex;
+    font-size: 12px;
 }
 
 .noteItemActions {
@@ -51,4 +52,5 @@
     flex-direction: row;
     max-height: 32px;
     max-width: 80%;
+    background-color: blanchedalmond;
 }
