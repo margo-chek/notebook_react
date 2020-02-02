@@ -33,12 +33,12 @@
 }
 
 .editIcon {
-    background: url("../../../image/icons8_edit_32.png") no-repeat;
+    background: url("../../../../image/icons8_edit_32.png") no-repeat;
     background-size: 80% auto;
 }
 
 .deleteIcon {
-    background: url("../../../image/icons8_delete_32.png") no-repeat;
+    background: url("../../../../image/icons8_delete_32.png") no-repeat;
     background-size: 80% auto;
 }
 

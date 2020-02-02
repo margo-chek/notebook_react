@@ -18,9 +18,9 @@ export default class Search extends React.Component {
 
   render () {
     return (
-      <div class="searchBlock">
-        <input class="inputSearchBlock" type="text" onKeyUp={this.searchNote} placeholder="Search" />
-        <div class="searchIcon"></div>
+      <div className="searchBlock">
+        <input className="inputSearchBlock" type="text" onKeyUp={this.searchNote} placeholder="Search" />
+        <div className="searchIcon"></div>
       </div>
     );
   }

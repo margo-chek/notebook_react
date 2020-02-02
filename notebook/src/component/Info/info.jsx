@@ -1,8 +1,6 @@
 import React from 'react';
 import './info.css';
 
-let idUpdate;
-
 export default class Info extends React.Component {
 
   // send = (event) => { // event: React.KeyboardEvent<HTMLInputElement>

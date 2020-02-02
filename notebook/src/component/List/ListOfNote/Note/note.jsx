@@ -5,7 +5,7 @@ export default class Note extends React.Component {
 
   getNoteInfo = (id, event) => {
     this.props.notes.forEach(item => {
-      if (id == item.id_note) {
+      if (id === item.id_note) {
         this.splitNote(item)
       }
     });
@@ -33,7 +33,7 @@ export default class Note extends React.Component {
 
   getNoteInfoShow = (id, event) => {
     this.props.notes.forEach(item => {
-      if (id == item.id_note) {
+      if (id === item.id_note) {
         this.splitNoteShow(item)
       }
     });

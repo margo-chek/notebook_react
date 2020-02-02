@@ -1,0 +1,45 @@
+.formBlock {
+    margin: 0 auto;
+    padding-top: 60px;
+}
+
+.inputForm {
+    display: flex;
+    margin: 20px auto !important;
+    padding: 8px;
+    min-height: 30px;
+    max-height: 32px;
+    width: 252px;
+    font-size: 19px;
+    line-height: 32px;
+    border: 2px solid #666;
+}
+
+.inputForm:first-child {
+    margin-top: 62px;
+}
+
+.buttonInput {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    min-height: 30px;
+    width: 292px;
+    padding: 8px;
+    color: #fff;
+    background-color: #008cff;
+    font-size: 19px;
+    line-height: 32px;
+    border: 2px solid #666;
+    border-radius: 19px;
+}
+
+.buttonReg {
+    box-sizing: border-box;
+    margin: 20px auto !important;
+}
+
+.buttonInput:hover {
+    cursor: pointer;
+    background-color: #0055ff;
+}
