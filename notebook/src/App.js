@@ -16,7 +16,7 @@ export default class App extends React.Component {
             isRegister: false,
             isMainPage: false,
         };
-        this.goOverMainPager = this.goOverMainPager.bind(this);
+        this.goOverMainPage = this.goOverMainPage.bind(this);
         this.goOverRegister = this.goOverRegister.bind(this);
         this.goOverLogin = this.goOverLogin.bind(this);
     };
@@ -40,7 +40,7 @@ export default class App extends React.Component {
         })
     }
 
-    goOverMainPager = () => {
+    goOverMainPage = () => {
         this.setState({
             isLogin: false,
             isMainPage: true,
@@ -86,7 +86,7 @@ export default class App extends React.Component {
             <div className="mainContainer">
                 <Header />
                 <div className="content">
-                    {this.state.isLogin && <Login goOverRegister={this.goOverRegister} goOverMainPager={this.goOverMainPager} />}
+                    {this.state.isLogin && <Login goOverRegister={this.goOverRegister} goOverMainPage={this.goOverMainPage} />}
                     {this.state.isRegister && <Register goOverLogin={this.goOverLogin} />}
                     {this.state.isMainPage &&
                         <>
