@@ -4,15 +4,15 @@ import './listOfNote.css';
 
 export default class ListOfNote extends React.Component {
 
-  render () {
-    return (
-      <div className="listOfNotesBlock">
-        {this.props.notes && this.props.notes.map(itemNote => (
-          <Note noteData={itemNote} notes={this.props.notes} />
-        ))}
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="listOfNotesBlock">
+                {this.props.notes && this.props.notes.map(itemNote => (
+                    <Note noteData={itemNote} notes={this.props.notes} />
+                ))}
+            </div>
+        );
+    }
 }
 
 // <Note key={itemNote.id_note} noteData={itemNote} />  // ошибка
