@@ -4,6 +4,20 @@ import './listOfNote.css';
 
 export default class ListOfNote extends React.Component {
 
+    // constructor(props) {
+    //     super(props);
+    //     this.state = Object.assign({}, this.props);
+    // };
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     const { notes } = this.props;
+    //     if (notes !== prevProps.notes) {
+    //         this.setState({
+    //             stateNotes: notes,
+    //         });
+    //     }
+    // }
+
     render() {
         return (
             <div className="listOfNotesBlock">

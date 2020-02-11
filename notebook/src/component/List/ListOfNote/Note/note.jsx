@@ -1,4 +1,5 @@
 import React from 'react';
+import { format } from "date-fns";
 import './note.css';
 
 export default class Note extends React.Component {
@@ -40,15 +41,24 @@ export default class Note extends React.Component {
 	}
 
 	showNote = (id, event) => {
-		let edit = document.querySelector(".rightContainerInfo");
+		let info = document.querySelector(".rightContainerInfo");
 		this.getNoteInfoShow(id, event);
-		edit.classList.add("visible");
+		info.classList.add("visible");
+		let create = document.querySelector(".rightContainerCreate");
+		create.classList.remove("visible");
+		let edit = document.querySelector(".rightContainerEdit");
+		edit.classList.remove("visible");
 	}
 
 	editNote = (id, event) => {
 		let edit = document.querySelector(".rightContainerEdit");
 		this.getNoteInfo(id, event);
-		edit.classList.add("visible");
+		edit.classList.add("visible");	
+		let create = document.querySelector(".rightContainerCreate");
+		create.classList.remove("visible");
+		let info = document.querySelector(".rightContainerInfo");
+		info.classList.remove("visible");
+
 	}
 
 	deleteNote = (id, event) => {
@@ -67,11 +77,14 @@ export default class Note extends React.Component {
 	// };
 
 	render() {
+		const { noteData } = this.props;
+		const date = new Date(noteData.use_date);
+		const formatDate = format(date, "dd.MM.yyyy");
 		return (
 			<div className="noteItemBlock visible">
 				<button className="noteItemBlockInfo" onClick={this.showNote.bind(this, this.props.noteData.id_note)}>
 					<div className="noteItemName searchName">{this.props.noteData.note_name}</div>
-					<div className="noteItemDate">{this.props.noteData.use_date}</div>
+					<div className="noteItemDate">{formatDate}</div>
 				</button>
 				<div className="noteItemActions">
 					<button className="editIcon" onClick={this.editNote.bind(this, this.props.noteData.id_note)}></button>

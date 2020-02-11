@@ -21,7 +21,7 @@ export default class App extends React.Component {
         this.goOverLogin = this.goOverLogin.bind(this);
     };
 
-    async componentDidMount() {
+    async loadNotes() {
         // let response = await fetch("http://localhost/wdb-course-3/software/notebook/load_notes.php", {method: "POST", body: data});
         // let response = await fetch("http://localhost/wdb-course-3/software/notebook/loadNotes.php", {credentials: "include"});
         let response = await fetch("http://localhost/wdb-course-3/software/notebook/loadNotes.php");
@@ -32,6 +32,17 @@ export default class App extends React.Component {
             notes: responseData
         })
     }
+
+    async componentDidMount() {
+        this.loadNotes();
+    }
+
+    // componentDidUpdate(prevProps) {
+    //     // Популярный пример (не забудьте сравнить пропсы):
+    //     if (this.props.notes !== prevProps.notes) {
+    //       this.fetchData(this.props.notes);
+    //     }
+    // }
 
     goOverRegister = () => {
         this.setState({
@@ -57,27 +68,33 @@ export default class App extends React.Component {
     updateNote(event) {
         event.preventDefault();
         fetch("http://localhost/wdb-course-3/software/notebook/insertNoteData.php", { method: "POST", body: new FormData(document.forms[0]) })
-            .then(response => response.json())
+            .then(response => response.text())
             .then(errorResult => {
                 // document.querySelector(".output").innerHTML = errorResult;
                 this.setState({
                     notes: errorResult
                 })
             })
-            .then(window.location.reload(true))
+            .then(
+                document.querySelector(".rightContainerCreate").classList.remove("visible")
+            )
+            .then(this.loadNotes()) //.then(window.location.reload(true))
     }
 
     editNote(event) {
         event.preventDefault();
         fetch("http://localhost/wdb-course-3/software/notebook/updateNoteData.php", { method: "POST", body: new FormData(document.forms[1]) })
-            .then(response => response.json())
+            .then(response => response.text())
             .then(errorResult => {
                 // document.querySelector(".output").innerHTML = errorResult;
                 this.setState({
                     notes: errorResult
                 })
             })
-            .then(window.location.reload(true))
+            .then(
+                document.querySelector(".rightContainerEdit").classList.remove("visible")
+            )
+            .then(this.loadNotes()) //.then(window.location.reload(true))
     }
 
     render() {
