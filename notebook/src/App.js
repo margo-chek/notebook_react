@@ -41,6 +41,7 @@ export default class App extends React.Component {
     //     // Популярный пример (не забудьте сравнить пропсы):
     //     if (this.props.notes !== prevProps.notes) {
     //       this.fetchData(this.props.notes);
+    
     //     }
     // }
 

@@ -72,10 +72,6 @@ export default class Note extends React.Component {
 		}
 	}
 
-	//   Date.prototype.format = function (mask, utc) {
-	//     return dateFormat(this, mask, utc);
-	// };
-
 	render() {
 		const { noteData } = this.props;
 		const date = new Date(noteData.use_date);
